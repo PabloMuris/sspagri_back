@@ -1,0 +1,12 @@
+@media (max-width: 767px) {
+  
+  .weather-card{
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+  .weather-card{
+  margin-inline: 24px;
+}
+  
+  
+}

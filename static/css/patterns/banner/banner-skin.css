@@ -1,0 +1,35 @@
+@media (min-width: 768px) {
+  .banner--skin{
+    border-radius: 10px;
+  }
+  
+}
+
+@media (max-width: 767px) {
+  .card{
+    border-radius: 10px
+  }
+  
+}
+
+
+.banner--skin{
+  background-color: green;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card__body--skin{
+  color: white;
+}
+
+.card__header--skin{
+  color: white
+}
+
+.card__expand-button--skin{
+  background-color: rgba(10,10,10,0.2);
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  
+}

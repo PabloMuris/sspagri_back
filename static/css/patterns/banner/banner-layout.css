@@ -1,0 +1,146 @@
+
+@media (max-width: 767px) {
+  .banner{
+    position: absolute;
+    top: -0px;
+    
+  }
+  .weather-card{
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+  
+}
+@media (min-width: 768px) {
+  
+}
+
+
+
+
+.banner{
+  display: flex;
+  flex-flow: column;
+  height: 350px;
+  
+  width: 100%;
+}
+
+.banner > *{
+  display: flex;
+}
+
+.card {
+  display: flex; 
+  flex-flow: column;
+  flex: 1;
+}
+
+.card > * {
+  display: flex;
+  width: 100%
+}
+.card__header{
+  display: flex;
+  height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+}
+
+.card__expand-button{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 10px;
+}
+
+
+.card__body{
+  flex: 1;
+  padding-inline: 16px;
+  align-items: center;
+}
+
+.card__body svg{
+  width: 60px
+}
+
+.card__location{
+  font-size: 16px;
+}
+
+.band{
+  min-height: 44px;
+  gap: 10px;
+  
+}
+
+.band__figure{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  min-width: 44px;
+}
+
+
+.banner{
+  display: flex;
+  flex-flow: column;
+  min-height: 300px;
+  max-height: 350px;
+}
+
+.banner > *{
+  display: flex;
+}
+
+
+
+.card {
+  display: flex; 
+  flex-flow: column;
+  flex: 1;
+}
+
+.card > * {
+  display: flex;
+  width: 100%
+}
+.card__header{
+  display: flex;
+  height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+}
+
+.card__expand-button{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 10px;
+}
+
+
+.card__body{
+  flex: 1;
+  padding-inline: 16px;
+}
+
+.band{
+  min-height: 44px;
+  gap: 10px;
+  align-items: center;
+  color: white;
+  
+}
+
+.band__figure{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+}

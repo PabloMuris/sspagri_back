@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static%}
+
+
+{% block title %} Koltagri{% endblock title %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/landplots/sites-layout.css'%}">
+<link rel="stylesheet" href="{% static 'css/landplots/sites-skin.css'%}">
+<style>
+   
+</style>
+
+
+
+{% endblock css %}
+ 
+
+
+
+{% block main %} 
+<section class="aux-navigation aux-navigation--skin h-350">
+    <button type="button" class="aux-navigation__button aux-navigation__button-skin">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
+    </button>
+    <button type="button" class="aux-navigation__button aux-navigation__button-skin">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/></svg>
+    </button>
+</section>
+<section class="">
+    <p>nada</p>
+</section>
+
+{% endblock main %}

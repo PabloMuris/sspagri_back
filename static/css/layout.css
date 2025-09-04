@@ -218,7 +218,7 @@ footer nav{
   }
   main{
     grid-template-columns: auto; /* sempre uma coluna */
-    
+ 
   }
   aside{
     display: none;

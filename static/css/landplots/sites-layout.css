@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+
+}
+@media (min-width: 768px) {
+  main {
+  grid-template-columns: auto;
+}
+}
+
+.aux-navigation{
+  height: 44px;
+}
+
+.aux-navigation__button{
+  height: 44px;
+}
