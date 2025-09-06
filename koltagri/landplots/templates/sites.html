@@ -5,31 +5,125 @@
 {% block title %} Koltagri{% endblock title %}
 
 
-{% block css %}
+{% block style %}
 <link rel="stylesheet" href="{% static 'css/landplots/sites-layout.css'%}">
 <link rel="stylesheet" href="{% static 'css/landplots/sites-skin.css'%}">
 <style>
-   
+
+
+.results-section-container{
+        height: 100%;
+        
+}
+    @media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+    .results-section-container{
+        flex-flow: row-reverse;
+        padding-top: 16px;
+
+}
+
+}
+.sites-result{
+    flex: 1;
+}
+
+.long-card{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        }
+.long-card{
+    background: gray;
+    border-radius: 10px;
+    height: 88px;
+}
+.long-card__icon{
+    width: 48px;
+    height: 48px;
+    margin-inline: 16px;
+}
+.long-card__description{
+    flex: 1;
+}
 </style>
 
 
 
-{% endblock css %}
+{% endblock style %}
  
 
 
 
 {% block main %} 
-<section class="aux-navigation aux-navigation--skin h-350">
-    <button type="button" class="aux-navigation__button aux-navigation__button-skin">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
-    </button>
-    <button type="button" class="aux-navigation__button aux-navigation__button-skin">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z"/></svg>
-    </button>
+<div class="results-section-container">
+    <form method="get">
+  {{ filter.form.as_p }}
+  <button type="submit">Filtrar</button>
+</form>
+
+<section class="sites-result sites-result--skin">
+   {% for site in sites %}
+    <div class="site-long-card long-card long-card-skin" onclick="">
+        <figure class="long-card__icon long-card__icon--skin">
+            <img src="{% static 'imgs/sites/farm.png'%}" alt="" srcset="">
+        </figure>
+        <div class="long-card__description long-card__description--skin">
+        <small class="long-card__description__site_location">
+            Riacho de Santana - RN
+        </small>
+        <p class="long-card__description__site_name"><span>
+            {{site.name}}
+        </span></p>
+        <p class="long-card__description__site_status">
+            Criado por: Pedro Pascal
+        </p>
+        </div>
+        <div class="long-card__options long-card__options--skin">
+            
+            <p></p>
+        </div>
+    </div>
+   {% endfor %}
 </section>
-<section class="">
-    <p>nada</p>
-</section>
+</div>
 
 {% endblock main %}
+
+{% block scripts%}
+<script>
+const filterForm = document.querySelector(".results-section-container form");
+const HeaderForm = document.getElementById("header-form");
+
+headerForm.addEventListener("submit", function(event) {
+  event.preventDefault(); // evita envio imediato
+
+  // Pegar valores do form de filtros
+  const categoria = document.getElementById("categoria").value;
+  const preco = document.getElementById("preco").value;
+
+  // Adicionar hidden inputs dinamicamente no headerForm
+  let inputCategoria = headerForm.querySelector("input[name='categoria']");
+  if (!inputCategoria) {
+    inputCategoria = document.createElement("input");
+    inputCategoria.type = "hidden";
+    inputCategoria.name = "categoria";
+    headerForm.appendChild(inputCategoria);
+  }
+  inputCategoria.value = categoria;
+
+  let inputPreco = headerForm.querySelector("input[name='preco']");
+  if (!inputPreco) {
+    inputPreco = document.createElement("input");
+    inputPreco.type = "hidden";
+    inputPreco.name = "preco";
+    headerForm.appendChild(inputPreco);
+  }
+  inputPreco.value = preco;
+
+  // Agora envia o form
+  filterForm.submit();
+});
+</script>
+{% endblock scripts %}

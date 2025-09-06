@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'djoser',
     'social_django',
     'leaflet',
+    'django_filters'
 ]
 
 MIDDLEWARE = [

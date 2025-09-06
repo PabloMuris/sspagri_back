@@ -1,0 +1,25 @@
+
+@media (max-width: 767px) {
+  header,body{
+    background-color: #f2f2f2;
+  }
+  
+  header form input,header form button{
+    background-color: white;
+  }
+}
+@media (min-width: 768px) {}
+
+.aux-navigation--skin{
+  
+}
+
+.aux-navigation--skin{
+
+}
+.aux-navigation__button-skin{
+
+  background-color: white;
+  justify-content: space-between;
+  border-radius: 10px;
+}
