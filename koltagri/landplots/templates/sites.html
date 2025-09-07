@@ -58,10 +58,21 @@
 
 {% block main %} 
 <div class="results-section-container">
-    <form method="get">
-  {{ filter.form.as_p }}
-  <button type="submit">Filtrar</button>
+    <section class="site-filters">
+        <form method="get" class="site-filter-form">
+  <div class="form-group">
+    <label for="id_name">Nome do site</label>
+    {{ filter.form.name }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_country">País</label>
+    {{ filter.form.country }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>
+    </section>
 
 <section class="sites-result sites-result--skin">
    {% for site in sites %}
@@ -93,37 +104,18 @@
 
 {% block scripts%}
 <script>
-const filterForm = document.querySelector(".results-section-container form");
-const HeaderForm = document.getElementById("header-form");
+document.getElementById("header-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // não deixa o header enviar sozinho
+  
+  // pega o valor digitado no header
+  const searchValue = document.getElementById("search").value;
 
-headerForm.addEventListener("submit", function(event) {
-  event.preventDefault(); // evita envio imediato
+  // joga no campo "name" do form principal (django-filter)
+  document.getElementById("id_name").value = searchValue;
 
-  // Pegar valores do form de filtros
-  const categoria = document.getElementById("categoria").value;
-  const preco = document.getElementById("preco").value;
-
-  // Adicionar hidden inputs dinamicamente no headerForm
-  let inputCategoria = headerForm.querySelector("input[name='categoria']");
-  if (!inputCategoria) {
-    inputCategoria = document.createElement("input");
-    inputCategoria.type = "hidden";
-    inputCategoria.name = "categoria";
-    headerForm.appendChild(inputCategoria);
-  }
-  inputCategoria.value = categoria;
-
-  let inputPreco = headerForm.querySelector("input[name='preco']");
-  if (!inputPreco) {
-    inputPreco = document.createElement("input");
-    inputPreco.type = "hidden";
-    inputPreco.name = "preco";
-    headerForm.appendChild(inputPreco);
-  }
-  inputPreco.value = preco;
-
-  // Agora envia o form
-  filterForm.submit();
+  // submete o form principal
+  document.querySelector(".site-filter-form").submit();
 });
 </script>
+
 {% endblock scripts %}

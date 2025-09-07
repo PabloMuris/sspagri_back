@@ -97,7 +97,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff; /* opcional */
+  background-color: #f2f2f2; /* opcional */
   color: #111;            /* opcional */
   display: grid;
 }
@@ -182,7 +182,6 @@ aside nav{
 main {
     display: grid;
     grid-area: main;
-    background-color: #f2f2f2;
     border-radius: 10px;
 }
 
