@@ -26,8 +26,12 @@ class CultivatesListView(ListView):
         context["filter"] = self.filterset
         return context
 
-class CultivatesDetailView(DetailView):
+class SiteDetailView(DetailView):
     model = Site
     template_name = 'site/site_detail.html'
     context_object_name = 'site'
+
+class CalendarDetailView(TemplateView):
+    template_name = 'calendar.html'
+    context_object_name = 'tarefas'
 

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static%}
+
+
+
+
+{% block title %} Koltagri{% endblock title %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index/index-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index/index-decoration.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<style>
+    #calendar{
+        width: 100%;
+    }
+    .flatpickr-input{
+        display: none;
+    }
+</style>
+
+{% endblock style %}
+
+
+
+{% block main %}
+<div id='calendar'></div>
+      
+{% endblock main %}
+
+{% block scripts%}
+<script>
+    flatpickr("#calendar", {
+  inline: true,
+  dateFormat: "d-m-y",
+  locale: "pt-br"
+});
+</script>
+{%endblock%}

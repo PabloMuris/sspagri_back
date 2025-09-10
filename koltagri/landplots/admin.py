@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PlantSpecies, Site, Cultivation, CultivationPlant, SiteMembership, Task,ClimateZone
+from .models import PlantSpecies, Site, Cultivation, CultivationPlant, SiteMembership,ClimateZone
 from leaflet.admin import LeafletGeoAdmin
 
 @admin.register(PlantSpecies)
@@ -34,10 +34,10 @@ class SiteMembershipAdmin(admin.ModelAdmin):
     list_display = ("id", "site", "user", "role")
     list_filter  = ("role",)
 
-@admin.register(Task)
-class TasksAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "start_in", "end_in")
-    filter_horizontal = ("cultivation_plant",) 
+#@admin.register(Task)
+#class TasksAdmin(admin.ModelAdmin):
+    #list_display = ("id", "name", "start_in", "end_in")
+    #filter_horizontal = ("cultivation_plant",) 
 
 @admin.register(ClimateZone)
 class ClimateZoneAdmin(admin.ModelAdmin):

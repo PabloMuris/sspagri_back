@@ -176,9 +176,24 @@ class SiteMembership(BaseModel):
         ]
 
 
-class Task(BaseModel):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    cultivation_plant= models.ManyToManyField(CultivationPlant, verbose_name=_(""))
-    start_in = models.DateTimeField()
-    end_in = models.DateTimeField()
+class Task(BaseModelWithSoftDelete):
+    name = models.CharField(max_length=MAX_CHAR_FIELD_NAME_LENGTH)
+    start_at = models.DateTimeField()
+    end_at = models.DateField()
+
+    users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name='tasks'
+    )
+
+    excluded_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        related_name="excluded_from_tasks"
+    )
+
+
+
+
+    

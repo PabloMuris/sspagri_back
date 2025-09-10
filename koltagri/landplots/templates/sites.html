@@ -12,21 +12,22 @@
 
 
 .results-section-container{
-        height: 100%;
+    height: fit-content;
+    gap: 10px;
         
 }
     @media (max-width: 767px) {
+        .filter-options{ margin-top: 20px;}
+        #id_name{display: none;}
 }
 @media (min-width: 768px) {
-    .results-section-container{
-        flex-flow: row-reverse;
-        padding-top: 16px;
-
-}
-
+    .results-section-container{flex-flow: row-reverse;}
+    .site-filters{ min-width: 200px; max-width: 300px; width: auto; padding-inline: 10px;}
+    .sites-result{padding-right: 27px;}
 }
 .sites-result{
     flex: 1;
+    
 }
 
 .long-card{
@@ -35,7 +36,7 @@
         align-items: center;
         }
 .long-card{
-    background: gray;
+    background: white;
     border-radius: 10px;
     height: 88px;
 }
@@ -46,6 +47,46 @@
 }
 .long-card__description{
     flex: 1;
+}
+
+.filter-options{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+}
+
+.filter-options > *{
+    display: flex;
+    gap: 6px;
+    min-width: 100px;
+    width: auto;
+    max-width: 120px;
+    height: 44px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-inline:10px;
+}
+
+.btn-filter--skin{
+    background-color: white;
+}
+.btn-filter{
+    border-radius: 10px;
+}
+
+.site-filters{
+    height: fit-content;
+
+}
+
+#id_name{
+    background-color: white;
+    height: 44px;
+    border-radius: 10px;
+    padding-left: 16px;
+    color: gray;
+    display: none;
 }
 </style>
 
@@ -59,9 +100,10 @@
 {% block main %} 
 <div class="results-section-container">
     <section class="site-filters">
+        
         <form method="get" class="site-filter-form">
   <div class="form-group">
-    <label for="id_name">Nome do site</label>
+    <label for="id_name" style="display: none;">Nome do site</label>
     {{ filter.form.name }}
   </div>
 
@@ -71,7 +113,8 @@
   </div>
 
   <button type="submit" class="btn btn-primary">Filtrar</button>
-</form>
+        </form>
+        
     </section>
 
 <section class="sites-result sites-result--skin">

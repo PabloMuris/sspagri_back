@@ -8,8 +8,8 @@
 
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/index/site-detail-layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index/site-detail-decoration.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landplots/site/site-detail-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landplots/site/site-detail-decoration.css' %}">
     <link rel="stylesheet" href="{% static 'css/patterns/banner/banner-layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/patterns/banner/banner-skin.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -27,8 +27,44 @@
       .site-card{
         position: relative;
         background-color: transparent;
+      }
+
+      main{
+        padding-inline: 0px;
+      }
+
+      header form{
         display: none;
       }
+      
+      @media (min-width: 768px){
+        
+      }
+      @media (max-width: 767px) {
+        .card__header{ padding-top: 24px; padding-inline: 24px; height: fit-content; justify-content: end;} 
+        .card__expand-button--skin{ 
+          border-radius: 10px;
+        }
+        .card__expand-button{
+          height: 50px;
+          min-width: 50px;
+
+        }
+
+        .card__header p{
+          display: none;
+        }
+
+      }
+
+      .btn{
+        display: flex;
+        flex-flow:row;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      
 
       
      </style>
@@ -43,17 +79,15 @@
 
 {% block main %}
 <section class="banner banner--skin">
-  <div id="map" class="card__background_map">
-
-  </div>
+  
     <div class="card site-card site-card--skin">
-        <div class="card__header card__header--skin">
+        <div class="card__header card__header--skin" style="z-index: 99;">
             <p class="card__location card__location--skin">
                 Riacho de Santana - RN
             </p>
             <button type="button" class="card__expand-button card__expand-button--skin">
                <p>Expandir</p>
-               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-200v-240h80v160h160v80H200Zm480-320v-160H520v-80h240v240h-80Z"/></svg>
+               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
             </button>
         </div>
 
@@ -62,21 +96,33 @@
         </div>
     </div>
     <div class="weather-advice-band band">
-        <figure class="band__figure band__figure--skin">
-            <img src="" alt="" srcset="">
+        <figure class="band__figure band__figure--skin" style="height: 44px; width: 44px; border-radius: 100%;">
+            <img src="{% static 'imgs/sites/farm.png'%}" alt="" srcset="" style="border-radius: 100%;">
         </figure>
         <div class="band__description band__description--skin">
-            <small class="band__description__location">
-
-            </small>
             <p class="band__description__name">
-              <span></span>
+              <span> Fazenda Koltagri</span>
             </p>
             <p class="band__description__created_by">
-              
+              Gerenciado por: Pablo Murilo
             </p>
         </div>
     </div>
+</section>
+<section class="site-info site-general-info--skin" style="margin-top: calc(350px - 50px);">
+  <div class="site-info__links">
+    <a href="" class="cultivate_link cultivate_link--skin btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-120v-319q-64 0-123-24.5T213-533q-45-45-69-104t-24-123v-80h80q63 0 122 24.5T426-746q31 31 51.5 68t31.5 79q5-7 11-13.5t13-13.5q45-45 104-69.5T760-720h80v80q0 64-24.5 123T746-413q-45 45-103.5 69T520-320v200h-80Zm0-400q0-48-18.5-91.5T369-689q-34-34-77.5-52.5T200-760q0 48 18 92t52 78q34 34 78 52t92 18Zm80 120q48 0 91.5-18t77.5-52q34-34 52.5-78t18.5-92q-48 0-92 18.5T590-569q-34 34-52 77.5T520-400Zm0 0Zm-80-120Z"/></svg>
+      <p>Cultivos</p>
+    </a>
+    <a href="" class="areas_link areas_link--skin btn">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m46-160 138-276q10-20 28.5-32t41.5-12q24 0 44 12.5t29 35.5l27 66q2 6 9 5.5t9-6.5l86-287q14-48 53.5-77t89.5-29q49 0 87.5 28.5T742-657l173 497h-85L666-632q-8-23-25-35.5T601-680q-23 0-40.5 13T535-631l-86 287q-9 28-32.5 46T363-280q-27 0-50-14.5T280-335l-27-66-118 241H46Zm194-400q-50 0-85-35.5T120-680q0-50 35-85t85-35q50 0 85 35t35 85q0 49-35 84.5T240-560Zm0-80q17 0 28.5-11.5T280-680q0-17-11.5-28.5T240-720q-17 0-28.5 11.5T200-680q0 17 11.5 28.5T240-640Zm123 360ZM240-680Z"/></svg>
+      <p>Áreas</p>
+    </a>
+  </div>
+  <div class="site-info__principal-data">
+    
+  </div>
 </section>
 
       
